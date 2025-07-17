@@ -36,5 +36,12 @@ export const TextConstants = {
             `This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.`
         }
       },
+      Heading: {
+        cart: 'Your Cart',
+        checkoutStepOne: 'Checkout: Your Information',
+        checkoutStepTwo: 'Checkout: Overview',
+        checkoutComplete: 'Checkout: Complete!',
+        inventory: 'Products',
+      },
   };
   
