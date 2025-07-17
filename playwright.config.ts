@@ -9,7 +9,8 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     launchOptions: {
       slowMo: 500,
-    }
+    },
   },
+  reporter: [['html', { open: 'always' }]],
   globalSetup: './global-setup.ts'
 });
