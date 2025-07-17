@@ -12,6 +12,7 @@ export class CheckoutOverviewPage {
 
   async verifyOrderItem(itemNames:string[]) {
    const allItems = Object.values(TextConstants.Cart);
+   let total = 0;
      
        for (const item of allItems) {
          if (!itemNames.includes(item.name)) continue;
@@ -25,11 +26,19 @@ export class CheckoutOverviewPage {
          await expect(
            this.page.locator(checkoutOverviewLocators.inventoryItemDesc, { hasText: item.desc })
          ).toBeVisible();
-       }
-     }
+
+        // Checking item amount
+        await expect(
+          this.page.locator(checkoutOverviewLocators.InventoryItemPrice, { hasText: `$${item.amount}` })
+        ).toBeVisible();
+
+        total += item.amount;
+  }
+  return total;
+  }
   
 
-  async verifyOrderShippingDetails() {
+  async verifyOrderShippingDetails(amount:number) {
     const validateShippingDetailsLocators = [
       checkoutOverviewLocators.paymentInfoLabel,
       checkoutOverviewLocators.paymentInfoValue,
@@ -44,5 +53,6 @@ export class CheckoutOverviewPage {
     for (const items of validateShippingDetailsLocators) {
       await expect(this.page.locator(items)).toBeVisible();
     }
+    await expect(this.page.locator(checkoutOverviewLocators.subTotalLabel)).toHaveText(`Item total: $${amount.toString()}`);
   }
 }

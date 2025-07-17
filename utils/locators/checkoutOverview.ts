@@ -1,7 +1,10 @@
+import { InventoryItem } from "../enums/inventoryItems";
+
 export const checkoutOverviewLocators = {
    checkoutOverviewPageHeading: '[data-test="title"]',
    itemsLocator:'[data-test="inventory-item-name"]',
    inventoryItemDesc: '[data-test="inventory-item-desc"]',
+   InventoryItemPrice: '[data-test="inventory-item-price"]',
    checkoutFinishButton:'[data-test="finish"]',
    paymentInfoLabel: '[data-test="payment-info-label"]',
    paymentInfoValue:'[data-test="payment-info-value"]',

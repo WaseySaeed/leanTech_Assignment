@@ -11,6 +11,6 @@ export default defineConfig({
       slowMo: 500,
     },
   },
-  reporter: [['html', { open: 'always' }]],
+  reporter: [['html', { open: 'never' }]],
   globalSetup: './global-setup.ts'
 });

@@ -47,8 +47,8 @@ test('SauceDemo: complete checkout flow with 3 random items', async ({ page }) =
     UrlRegexConstants.checkoutStepTwo,
     checkoutOverviewLocators.checkoutOverviewPageHeading,
     TextConstants.Heading.checkoutStepTwo);
-  await pages.checkoutOverviewPage.verifyOrderItem(itemName);
-  await pages.checkoutOverviewPage.verifyOrderShippingDetails();
+  const amount = await pages.checkoutOverviewPage.verifyOrderItem(itemName);
+  await pages.checkoutOverviewPage.verifyOrderShippingDetails(amount);
   await pages.checkoutOverviewPage.finishOrder();
 
    // Verifying order Submission page
